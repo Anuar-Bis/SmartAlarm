@@ -122,4 +122,13 @@
 <string name="apply_filter">Apply Filter</string>
 <string name="weekly_trend">Weekly Trend</string>
 <string name="statistics">Statistics</string>
+    <string name="tardiness_count_title">Tardiness Count</string>
+<string name="select_date_range">Select Date Range</string>
+<string name="this_week">This Week</string>
+<string name="this_month">This Month</string>
+<string name="semester">Semester</string>
+<string name="start_date">Start Date</string>
+<string name="end_date">End Date</string>
+<string name="apply_filter">Apply Filter</string>
+<string name="tardiness_count_result">Tardiness Count</string>
 </resources>
