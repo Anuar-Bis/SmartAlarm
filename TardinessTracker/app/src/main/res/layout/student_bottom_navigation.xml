@@ -1,1 +1,15 @@
-
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_qr_code"
+        android:icon="@drawable/ic_qr_code"
+        android:title="QR Code" />
+    <item
+        android:id="@+id/nav_tardiness"
+        android:icon="@drawable/ic_tardiness"
+        android:title="Tardiness" />
+    <item
+        android:id="@+id/nav_alarm"
+        android:icon="@drawable/ic_alarm"
+        android:title="Alarm" />
+</menu>
