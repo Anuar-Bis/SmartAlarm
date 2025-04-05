@@ -89,4 +89,13 @@
     <string name="qr_code">QR Code</string>
     <string name="qr_code_expiry">Expires in: 5:00</string>
     <string name="refresh_qr_code">Refresh QR Code</string>
+
+    <string name="recommendations_title">Recommendations</string>
+    <string name="recommendations_subtitle">Suggestions to reduce student tardiness</string>
+    <string name="top_tardy_students">Top Tardy Students</string>
+    <string name="suggested_actions">Suggested Actions</string>
+    <string name="individual_meeting_suggestion">Conduct individual meetings with frequently tardy students.</string>
+    <string name="parent_contact_suggestion">Contact parents to discuss punctuality issues.</string>
+    <string name="schedule_adjustment_suggestion">Review and adjust class schedules if necessary.</string>
+    <string name="refresh_recommendations">Refresh Recommendations</string>
 </resources>
