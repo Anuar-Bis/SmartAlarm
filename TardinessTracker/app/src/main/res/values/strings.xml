@@ -76,4 +76,11 @@
     <string name="tardiness_by_day">Tardiness by Day</string>
     <string name="tardiness_by_student">Tardiness by Student</string>
     <string name="recommendation_title">Recommendations to Reduce Tardiness</string>
+
+    <string name="profile_picture">Profile Picture</string>
+    <string name="student_id">Student ID</string>
+    <string name="school">School</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="generate_qr_code">Generate QR Code</string>
 </resources>
