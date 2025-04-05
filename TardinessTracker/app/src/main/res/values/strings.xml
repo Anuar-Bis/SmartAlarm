@@ -1,3 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App Name -->
     <string name="app_name">Tardiness Tracker</string>
+    
+    <!-- Common -->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="submit">Submit</string>
+    <string name="back">Back</string>
+    <string name="loading">Loading…</string>
+    <string name="error_occurred">An error occurred</string>
+    <string name="retry">Retry</string>
+    
+    <!-- Login -->
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login_as_student">Login as Student</string>
+    <string name="login_as_teacher">Login as Teacher</string>
+    <string name="login_as_parent">Login as Parent</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="invalid_credentials">Invalid username or password</string>
+    
+    <!-- Student -->
+    <string name="student_profile">Profile</string>
+    <string name="qr_code">QR Code</string>
+    <string name="smart_alarm">Smart Alarm</string>
+    <string name="student_name">Name</string>
+    <string name="student_id">Student ID</string>
+    <string name="student_class">Class</string>
+    <string name="student_tardiness_count">Total Tardiness</string>
+    <string name="generate_qr_code">Generate QR Code</string>
+    <string name="show_qr_code">Show at School Entry</string>
+    <string name="qr_code_generated">QR Code Generated</string>
+    
+    <!-- Smart Alarm -->
+    <string name="set_alarm">Set Alarm</string>
+    <string name="alarm_time">Alarm Time</string>
+    <string name="home_location">Home Location</string>
+    <string name="school_location">School Location</string>
+    <string name="transportation_method">Transportation Method</string>
+    <string name="walking">Walking</string>
+    <string name="biking">Biking</string>
+    <string name="car">Car</string>
+    <string name="public_transport">Public Transport</string>
+    <string name="estimated_travel_time">Estimated Travel Time</string>
+    <string name="recommended_departure">Recommended Departure Time</string>
+    <string name="class_start_time">Class Start Time</string>
+    
+    <!-- Parent -->
+    <string name="parent_dashboard">Dashboard</string>
+    <string name="chatbot">Chatbot</string>
+    <string name="type_message">Type a message</string>
+    <string name="send_message">Send</string>
+    <string name="tardiness_notification">Your child was late today</string>
+    <string name="child_arrived">Your child has arrived at school</string>
+    <string name="reason_for_tardiness">Reason for tardiness</string>
+    
+    <!-- Teacher -->
+    <string name="teacher_dashboard">Dashboard</string>
+    <string name="tardiness_count">Tardiness Count</string>
+    <string name="tardiness_analysis">Tardiness Analysis</string>
+    <string name="recommendations">Recommendations</string>
+    <string name="select_time_period">Select Time Period</string>
+    <string name="today">Today</string>
+    <string name="this_week">This Week</string>
+    <string name="this_month">This Month</string>
+    <string name="custom_period">Custom Period</string>
+    <string name="student_list">Student List</string>
+    <string name="search_student">Search Student</string>
+    <string name="total_students">Total Students</string>
+    <string name="total_tardiness">Total Tardiness</string>
+    <string name="average_tardiness">Average Tardiness</string>
+    <string name="tardiness_by_day">Tardiness by Day</string>
+    <string name="tardiness_by_student">Tardiness by Student</string>
+    <string name="recommendation_title">Recommendations to Reduce Tardiness</string>
 </resources>
