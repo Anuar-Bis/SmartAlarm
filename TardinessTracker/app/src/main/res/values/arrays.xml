@@ -1,0 +1,6 @@
+<string-array name="transport_modes">
+    <item>Walking</item>
+    <item>Bicycle</item>
+    <item>Bus</item>
+    <item>Car</item>
+</string-array>
