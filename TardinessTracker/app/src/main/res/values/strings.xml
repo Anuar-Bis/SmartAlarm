@@ -101,4 +101,16 @@
 
     <string name="reason">Reason:</string>
     <string name="tardy_status">Tardy Status</string>
+
+    <string name="smart_alarm_title">Smart Alarm</string>
+<string name="smart_alarm_subtitle">Set your wake-up time based on your route to school</string>
+<string name="enable_smart_alarm">Enable Smart Alarm</string>
+<string name="home_location">Home Location</string>
+<string name="school_location">School Location</string>
+<string name="edit">Edit</string>
+<string name="lesson_start_time">Lesson Start Time</string>
+<string name="hint_lesson_start">Enter start time (e.g., 08:00 AM)</string>
+<string name="transport_mode">Transport Mode</string>
+<string name="wake_up_time">Wake-Up Time</string>
+<string name="save_alarm">Save Alarm</string>
 </resources>
