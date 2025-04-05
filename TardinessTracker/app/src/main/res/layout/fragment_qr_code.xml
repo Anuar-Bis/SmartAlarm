@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     android:padding="16dp"
     tools:context=".ui.student.QrCodeFragment">
 
+    <!-- Заголовок -->
     <TextView
         android:id="@+id/tv_qr_code_title"
         android:layout_width="wrap_content"
@@ -14,30 +16,37 @@
         android:layout_marginTop="24dp"
         android:text="@string/qr_code_title"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textColor="#212121"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Подзаголовок -->
     <TextView
         android:id="@+id/tv_qr_code_subtitle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/qr_code_subtitle"
         android:textAlignment="center"
+        android:textColor="#757575"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_qr_code_title" />
 
+    <!-- Карточка с QR-кодом -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_qr_code"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="32dp"
-        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="12dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,50 +58,77 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/qr_code"
             android:padding="24dp"
+            android:scaleType="centerInside"
             tools:src="@drawable/qr_code_placeholder" />
 
     </com.google.android.material.card.MaterialCardView>
 
+    <!-- Имя ученика -->
     <TextView
         android:id="@+id/tv_student_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textSize="18sp"
+        android:textColor="#212121"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/card_qr_code"
         tools:text="John Smith" />
 
+    <!-- ID ученика -->
     <TextView
         android:id="@+id/tv_student_id_qr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:textColor="#616161"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_student_name"
         tools:text="ID: ST12345" />
 
-    <TextView
-        android:id="@+id/tv_qr_code_expiry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/qr_code_expiry"
-        android:textColor="@color/colorWarning"
+    <!-- Индикатор времени действия QR-кода -->
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progress_qr_expiry"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        app:indicatorColor="#FF5722"
+        app:trackColor="#E0E0E0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_student_id_qr" />
 
-    <Button
+    <TextView
+        android:id="@+id/tv_qr_code_expiry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/qr_code_expiry"
+        android:textColor="#FF5722"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress_qr_expiry"
+        tools:text="Expires in: 5:00" />
+
+    <!-- Кнопка обновления QR-кода -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_refresh_qr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/refresh_qr_code"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#3F51B5"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_qr_code_expiry" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
