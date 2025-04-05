@@ -1,6 +1,11 @@
-<string-array name="transport_modes">
-    <item>Walking</item>
-    <item>Bicycle</item>
-    <item>Bus</item>
-    <item>Car</item>
-</string-array>
+<resources>
+    <!-- Other string resources -->
+
+    <!-- Transportation Methods -->
+    <string-array name="transportation_methods">
+        <item>Walking</item>
+        <item>Biking</item>
+        <item>Car</item>
+        <item>Public Transport</item>
+    </string-array>
+</resources>
