@@ -5,21 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="#F5F5F5"
     tools:context=".MainActivity">
 
+    <!-- Логотип или иконка приложения -->
+    <ImageView
+        android:id="@+id/imgAppLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="Tardiness Tracker Logo"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Заголовок приложения -->
     <TextView
         android:id="@+id/txtAppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tardiness Tracker"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
+        android:textColor="#212121"
         app:layout_constraintBottom_toTopOf="@+id/txtSelectUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgAppLogo"
         app:layout_constraintVertical_chainStyle="packed" />
 
+    <!-- Подзаголовок -->
     <TextView
         android:id="@+id/txtSelectUser"
         android:layout_width="wrap_content"
@@ -27,45 +43,74 @@
         android:layout_marginTop="16dp"
         android:text="Select User Type"
         android:textSize="18sp"
+        android:textColor="#757575"
         app:layout_constraintBottom_toTopOf="@+id/btnStudent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAppTitle" />
 
+    <!-- Кнопка Student -->
     <Button
         android:id="@+id/btnStudent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:backgroundTint="#3F51B5"
         android:text="Student"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btnTeacher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSelectUser"
         app:layout_constraintWidth_percent="0.7" />
 
+    <!-- Кнопка Teacher -->
     <Button
         android:id="@+id/btnTeacher"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:backgroundTint="#3F51B5"
         android:text="Teacher"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:cornerRadius="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btnParent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnStudent"
         app:layout_constraintWidth_percent="0.7" />
 
+    <!-- Кнопка Parent -->
     <Button
         android:id="@+id/btnParent"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:backgroundTint="#3F51B5"
         android:text="Parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtVersion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnTeacher"
         app:layout_constraintWidth_percent="0.7" />
+
+    <!-- Версия приложения (опционально) -->
+    <TextView
+        android:id="@+id/txtVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Version 1.0.0"
+        android:textSize="14sp"
+        android:textColor="#B0BEC5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
