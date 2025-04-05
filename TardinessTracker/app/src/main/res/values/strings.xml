@@ -59,7 +59,7 @@
     <string name="reason_for_tardiness">Reason for tardiness</string>
     
     <!-- Teacher -->
-    <string name="teacher_dashboard">Dashboard</string>
+    <string name="teacher_dashboard">Teacher Dashboard</string>
     <string name="tardiness_count">Tardiness Count</string>
     <string name="tardiness_analysis">Tardiness Analysis</string>
     <string name="recommendations">Recommendations</string>
