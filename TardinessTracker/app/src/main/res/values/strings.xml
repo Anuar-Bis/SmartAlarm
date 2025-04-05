@@ -113,4 +113,13 @@
 <string name="transport_mode">Transport Mode</string>
 <string name="wake_up_time">Wake-Up Time</string>
 <string name="save_alarm">Save Alarm</string>
+
+<string name="tardiness_analysis_title">Tardiness Analysis</string>
+<string name="select_date_range">Select Date Range</string>
+<string name="this_week">This Week</string>
+<string name="this_month">This Month</string>
+<string name="semester">Semester</string>
+<string name="apply_filter">Apply Filter</string>
+<string name="weekly_trend">Weekly Trend</string>
+<string name="statistics">Statistics</string>
 </resources>
