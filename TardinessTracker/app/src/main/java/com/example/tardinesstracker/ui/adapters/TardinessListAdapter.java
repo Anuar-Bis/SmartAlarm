@@ -9,19 +9,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tardinesstracker.R;
 import com.example.tardinesstracker.data.entities.Tardiness;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class TardinessListAdapter extends RecyclerView.Adapter<TardinessListAdapter.TardinessViewHolder> {
 
     private final Context context;
-    private List<Tardiness> tardinessList;
+    private List<Tardiness> tardinessList = new ArrayList<>();
     private final OnTardinessClickListener listener;
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy HH:mm", Locale.getDefault());
 
@@ -29,9 +31,8 @@ public class TardinessListAdapter extends RecyclerView.Adapter<TardinessListAdap
         void onTardinessClick(Tardiness tardiness);
     }
 
-    public TardinessListAdapter(Context context, List<Tardiness> tardinessList, OnTardinessClickListener listener) {
+    public TardinessListAdapter(Context context, OnTardinessClickListener listener) {
         this.context = context;
-        this.tardinessList = tardinessList;
         this.listener = listener;
     }
 
@@ -45,53 +46,35 @@ public class TardinessListAdapter extends RecyclerView.Adapter<TardinessListAdap
     @Override
     public void onBindViewHolder(@NonNull TardinessViewHolder holder, int position) {
         Tardiness tardiness = tardinessList.get(position);
-        
-        // Set student information
-        holder.studentNameTv.setText(tardiness.getStudentName());
-        holder.studentIdTv.setText(String.format("ID: %s", tardiness.getStudentId()));
-        
-        // Set tardiness details
-        holder.dateTv.setText(dateFormat.format(tardiness.getDateTime()));
-        holder.minutesLateTv.setText(String.format("%d min late", tardiness.getMinutesLate()));
-        
-        // Set reason if available
-        if (tardiness.getReason() != null && !tardiness.getReason().isEmpty()) {
-            holder.reasonTv.setVisibility(View.VISIBLE);
-            holder.reasonTv.setText(tardiness.getReason());
-        } else {
-            holder.reasonTv.setVisibility(View.GONE);
-        }
-        
-        // Set color based on tardiness severity
-        int color;
-        if (tardiness.getMinutesLate() <= 5) {
-            color = R.color.slightlyLate;
-        } else if (tardiness.getMinutesLate() <= 15) {
-            color = R.color.warning;
-        } else {
-            color = R.color.veryLate;
-        }
-        holder.cardView.setCardBackgroundColor(ContextCompat.getColor(context, color));
-        
-        // Set click listener
-        holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onTardinessClick(tardiness);
-            }
-        });
+        holder.bind(tardiness);
     }
 
     @Override
     public int getItemCount() {
-        return tardinessList == null ? 0 : tardinessList.size();
+        return tardinessList.size();
     }
 
+    // Обновление данных с использованием DiffUtil
     public void updateData(List<Tardiness> newData) {
-        this.tardinessList = newData;
-        notifyDataSetChanged();
+        if (newData == null) {
+            return;
+        }
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new TardinessDiffCallback(tardinessList, newData));
+        this.tardinessList.clear();
+        this.tardinessList.addAll(newData);
+        diffResult.dispatchUpdatesTo(this);
     }
 
-    static class TardinessViewHolder extends RecyclerView.ViewHolder {
+    // Добавление одного элемента
+    public void addTardiness(Tardiness tardiness) {
+        if (tardiness == null) {
+            return;
+        }
+        this.tardinessList.add(tardiness);
+        notifyItemInserted(tardinessList.size() - 1);
+    }
+
+    class TardinessViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
         TextView studentNameTv;
         TextView studentIdTv;
@@ -107,6 +90,81 @@ public class TardinessListAdapter extends RecyclerView.Adapter<TardinessListAdap
             dateTv = itemView.findViewById(R.id.tardiness_date);
             minutesLateTv = itemView.findViewById(R.id.minutes_late);
             reasonTv = itemView.findViewById(R.id.tardiness_reason);
+
+            // Установка клика на элемент
+            itemView.setOnClickListener(v -> {
+                if (listener != null) {
+                    listener.onTardinessClick(tardinessList.get(getAdapterPosition()));
+                }
+            });
+        }
+
+        void bind(Tardiness tardiness) {
+            // Информация о студенте
+            studentNameTv.setText(tardiness.getStudentName());
+            studentIdTv.setText(String.format("ID: %s", tardiness.getStudentId()));
+
+            // Детали опоздания
+            dateTv.setText(dateFormat.format(tardiness.getDateTime()));
+            minutesLateTv.setText(String.format("%d min late", tardiness.getMinutesLate()));
+
+            // Причина опоздания
+            if (tardiness.getReason() != null && !tardiness.getReason().isEmpty()) {
+                reasonTv.setVisibility(View.VISIBLE);
+                reasonTv.setText(tardiness.getReason());
+            } else {
+                reasonTv.setVisibility(View.GONE);
+            }
+
+            // Цвет карточки в зависимости от степени опоздания
+            int color = getSeverityColor(tardiness.getMinutesLate());
+            cardView.setCardBackgroundColor(ContextCompat.getColor(context, color));
+        }
+
+        private int getSeverityColor(int minutesLate) {
+            if (minutesLate <= 5) {
+                return R.color.slightlyLate;
+            } else if (minutesLate <= 15) {
+                return R.color.warning;
+            } else {
+                return R.color.veryLate;
+            }
+        }
+    }
+
+    // DiffUtil для оптимизации обновлений
+    private static class TardinessDiffCallback extends DiffUtil.Callback {
+        private final List<Tardiness> oldList;
+        private final List<Tardiness> newList;
+
+        public TardinessDiffCallback(List<Tardiness> oldList, List<Tardiness> newList) {
+            this.oldList = oldList;
+            this.newList = newList;
+        }
+
+        @Override
+        public int getOldListSize() {
+            return oldList.size();
+        }
+
+        @Override
+        public int getNewListSize() {
+            return newList.size();
+        }
+
+        @Override
+        public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
+            return oldList.get(oldItemPosition).getId().equals(newList.get(newItemPosition).getId());
+        }
+
+        @Override
+        public boolean areContentsTheSame(int oldItemPosition, int newItemPosition) {
+            Tardiness oldTardiness = oldList.get(oldItemPosition);
+            Tardiness newTardiness = newList.get(newItemPosition);
+            return oldTardiness.getStudentId().equals(newTardiness.getStudentId())
+                    && oldTardiness.getDateTime().equals(newTardiness.getDateTime())
+                    && oldTardiness.getMinutesLate() == newTardiness.getMinutesLate()
+                    && (oldTardiness.getReason() == null ? newTardiness.getReason() == null : oldTardiness.getReason().equals(newTardiness.getReason()));
         }
     }
 }
