@@ -1,5 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.TardinessTracker" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    
+    <!-- No Action Bar theme -->
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    
+    <!-- Splash screen theme -->
+    <style name="SplashTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
+    
+    <!-- Login screen theme -->
+    <style name="LoginTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+    
+    <!-- Text styles -->
+    <style name="TextAppearance.Title" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="TextAppearance.Subtitle" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="TextAppearance.Body" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">14sp</item>
+    </style>
+    
+    <style name="TextAppearance.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/mediumGray</item>
+    </style>
+    
+    <!-- Button styles -->
+    <style name="Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+    
+    <style name="Button.Secondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+    
+    <!-- Card styles -->
+    <style name="CardView.Standard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+    
+    <!-- Input field styles -->
+    <style name="TextInputLayout.Standard" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/colorPrimary</item>
+        <item name="hintTextColor">@color/colorPrimary</item>
+    </style>
+    
+    <!-- User type specific themes -->
+    <style name="StudentTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/studentColor</item>
+        <item name="colorPrimaryDark">@color/studentColor</item>
+        <item name="colorAccent">@color/studentColor</item>
+    </style>
+    
+    <style name="TeacherTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/teacherColor</item>
+        <item name="colorPrimaryDark">@color/teacherColor</item>
+        <item name="colorAccent">@color/teacherColor</item>
+    </style>
+    
+    <style name="ParentTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/parentColor</item>
+        <item name="colorPrimaryDark">@color/parentColor</item>
+        <item name="colorAccent">@color/parentColor</item>
+    </style>
 </resources>
